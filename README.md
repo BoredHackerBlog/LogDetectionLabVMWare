@@ -14,6 +14,7 @@ Vagrant AD Lab builder for log-based detection research and development
 - run: git clone https://github.com/BoredHackerBlog/LogDetectionLabVMWare
 - run: cd LogDetectionLabVMWare
 - edit VMware provider (line: config.vm.provider "vmware_workstation" do |v|) if needed
+- edit winlogbeat.yml
 - run: vagrant up
 - walk away for like 30 minutes
 - to destroy the lab, run: vagrant destroy -f
