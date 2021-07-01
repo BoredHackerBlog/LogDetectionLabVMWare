@@ -1,0 +1,24 @@
+winlogbeat.event_logs:
+  - name: Application
+    ignore_older: 30m
+  - name: Security
+    ignore_older: 30m
+  - name: System
+    ignore_older: 30m
+  - name: Microsoft-windows-sysmon/operational
+    ignore_older: 30m
+  - name: Microsoft-windows-PowerShell/Operational
+    ignore_older: 30m
+    event_id: 4103, 4104
+  - name: Windows PowerShell
+    event_id: 400,600
+    ignore_older: 30m
+  - name: Microsoft-Windows-WMI-Activity/Operational
+    event_id: 5857,5858,5859,5860,5861
+
+output.elasticsearch:
+  hosts: ["https://cloud.humio.com:443/api/v1/ingest/elastic-bulk"]
+  password: "5f1fc612-ddda-4edf-98db-52be5f1682d9" #change this to your humio token
+  compression_level: 5
+  bulk_max_size: 200
+  worker: 1
